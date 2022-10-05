@@ -1,6 +1,8 @@
+#include "pch.h"
+
 #include "GameApp.h"
 #include "PixelUtil.h"
-#include <iostream>
+
 
 namespace Ekko
 {
