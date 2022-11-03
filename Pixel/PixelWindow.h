@@ -10,15 +10,13 @@ namespace Ekko
 	{
 	public:
 		static void Init();
-		PixelWindow* GetWindow();
+		static PixelWindow* GetWindow();
 
-		void Create(int width, int height, const std::string& windowName);
-		void SwapBuffers();
+		virtual void Create(int width, int height, const std::string& windowName);
+		virtual void SwapBuffers();
 
 
 	private:
-		PixelWindow();
-
 		inline static PixelWindow* mInstance{ nullptr };
 
 		WindowImplementation* mImplementation{ nullptr };

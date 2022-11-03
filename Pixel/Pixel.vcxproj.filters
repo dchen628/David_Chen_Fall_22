@@ -24,6 +24,9 @@
     <ClCompile Include="PixelWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GLFWthings\GLFWimplementation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h">
@@ -44,7 +47,7 @@
     <ClInclude Include="WindowImplementation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GLFWthings\GLFWwindow.h">
+    <ClInclude Include="GLFWthings\GLFWimplementation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

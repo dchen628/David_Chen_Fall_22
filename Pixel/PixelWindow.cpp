@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "PixelWindow.h"
+#include "GLFWthings/GLFWimplementation.h"
 
 namespace Ekko
 {
@@ -9,7 +10,13 @@ namespace Ekko
 		{
 			mInstance = new PixelWindow;
 
-			//mInstance->mImplementation
+#ifdef PIXEL_WINDOWS
+			mInstance->mImplementation = new GLFWimplementation;
+#elif defined PIXEL_MAC
+			mInstance->mImplementation = new GLFWimplementation;
+#else
+			mInstance->mImplementation = new GLFWimplementation;
+#endif
 		}
 	}
 
