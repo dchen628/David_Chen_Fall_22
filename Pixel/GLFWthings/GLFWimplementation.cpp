@@ -1,6 +1,8 @@
 #include "pch.h"
 
 #include "GLFWimplementation.h"
+#include "PixelUtil.h"
+#include "glad/glad.h"
 
 namespace Ekko
 {
@@ -14,6 +16,13 @@ namespace Ekko
 	void GLFWimplementation::Create(int width, int height, const std::string& windowName)
 	{
 		mWindow = glfwCreateWindow(width, height, windowName.c_str(), NULL, NULL);
+
+		glfwMakeContextCurrent(mWindow);
+
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		{
+			PIXEL_LOG("Failed to initialize GLAD");
+		}
 	}
 
 	void GLFWimplementation::SwapBuffers()

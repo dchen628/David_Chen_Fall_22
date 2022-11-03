@@ -107,7 +107,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Pixel;$(SolutionDir)glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glad\include;$(SolutionDir)Pixel;$(SolutionDir)glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,7 +125,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)Pixel;$(SolutionDir)glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glad\include;$(SolutionDir)Pixel;$(SolutionDir)glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,6 +153,9 @@
     <ClCompile Include="PixelWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\glad\glad.vcxproj">
+      <Project>{16094021-0caa-4fd8-bda5-8b751900e367}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\glfw\build\src\glfw.vcxproj">
       <Project>{39bc9267-63e7-3972-a7f9-ac86cac66550}</Project>
     </ProjectReference>
