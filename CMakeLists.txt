@@ -20,5 +20,6 @@ add_definitions(-DPIXEL_DEBUG)
 add_subdirectory(GameEngine)
 add_subdirectory(Pixel)
 add_subdirectory(glfw)
+add_subdirectory(glad)
 
 set(VS_STARTUP_PROJECT GameEngine)

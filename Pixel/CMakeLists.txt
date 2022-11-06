@@ -19,6 +19,7 @@ add_definitions(-DPIXEL_LIB)
 target_precompile_headers(Pixel PRIVATE pch.h)
 
 include_directories(../glfw/include/)
+include_directories(../glad/include/)
 include_directories(../Pixel)
 
-target_link_libraries(Pixel glfw)
+target_link_libraries(Pixel glfw glad)
