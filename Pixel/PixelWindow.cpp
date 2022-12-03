@@ -27,11 +27,24 @@ namespace Ekko
 	void PixelWindow::Create(int width, int height, const std::string& windowName)
 	{
 		mImplementation->Create(width, height, windowName);
+
+		mWidth = width;
+		mHeight = height;
 	}
 
 	void PixelWindow::SwapBuffers()
 	{
 		mImplementation->SwapBuffers();
+	}
+
+	int PixelWindow::GetWidth() const
+	{
+		return mWidth;
+	}
+
+	int PixelWindow::GetHeight() const
+	{
+		return mHeight;
 	}
 
 }

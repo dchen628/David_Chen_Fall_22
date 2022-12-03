@@ -138,6 +138,7 @@
     <ClInclude Include="GameApp.h" />
     <ClInclude Include="GLFWthings\GLFWimplementation.h" />
     <ClInclude Include="OpenGLthings\OpenGLPicture.h" />
+    <ClInclude Include="OpenGLthings\OpenGLRenderer.h" />
     <ClInclude Include="OpenGLthings\OpenGLShader.h" />
     <ClInclude Include="OpenGLthings\Shader.h" />
     <ClInclude Include="pch.h" />
@@ -146,6 +147,8 @@
     <ClInclude Include="Pixel.h" />
     <ClInclude Include="PixelUtil.h" />
     <ClInclude Include="PixelWindow.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="RendererImplementation.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderImplementation.h" />
     <ClInclude Include="WindowImplementation.h" />
@@ -154,6 +157,7 @@
     <ClCompile Include="GameApp.cpp" />
     <ClCompile Include="GLFWthings\GLFWimplementation.cpp" />
     <ClCompile Include="OpenGLthings\OpenGLPicture.cpp" />
+    <ClCompile Include="OpenGLthings\OpenGLRenderer.cpp" />
     <ClCompile Include="OpenGLthings\OpenGLShader.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -161,6 +165,7 @@
     </ClCompile>
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="PixelWindow.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -136,6 +136,8 @@ namespace Ekko
     {
         GLint location{ glGetUniformLocation(mShaderProg, valueName.c_str()) };
 
+        Activate();
+
         switch (vals.size())
         {
         case 1:
@@ -158,6 +160,8 @@ namespace Ekko
     void OpenGLShader::ProvideFloatValues(std::string&& valueName, const std::vector<float>& vals)
     {
         GLint location{ glGetUniformLocation(mShaderProg, valueName.c_str()) };
+
+        Activate();
 
         switch (vals.size())
         {

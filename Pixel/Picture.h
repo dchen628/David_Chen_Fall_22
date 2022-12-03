@@ -2,6 +2,7 @@
 
 #include "pch.h"
 #include "PixelUtil.h"
+#include "PictureImplementation.h"
 
 namespace Ekko
 {

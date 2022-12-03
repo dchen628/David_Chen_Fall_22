@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Picture.h"
+#include "OpenGLthings/OpenGLPicture.h"
 
 namespace Ekko
 {

@@ -11,7 +11,7 @@ namespace Ekko
 	{
 		mImplementation->ProvideFloatValues(valueName, vals);
 	}
-	void Shader::ProvideFloatValues(std::string&& valueName, const std::vector<float>& vals)
+	void Shader::ProvideFloatValues(std::string&& valueName, std::vector<float>&& vals)
 	{
 		mImplementation->ProvideFloatValues(valueName, vals);
 	}
