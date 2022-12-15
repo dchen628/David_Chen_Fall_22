@@ -10,6 +10,14 @@
 
 namespace Ekko
 {
+	GameApp::GameApp()
+	{
+		PixelWindow::Init();
+		PixelWindow::GetWindow()->Create(1000, 800, "TestWindow");
+
+		Renderer::Init();
+	}
+
 	void GameApp::ForceUpdate()
 	{
 
@@ -19,21 +27,23 @@ namespace Ekko
 	{
 		PIXEL_LOG("Pixel Running...");
 
-		PixelWindow::Init();
-		PixelWindow::GetWindow()->Create(600, 400, "Onedow");
+		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 
-		Picture pic{ "Assets/Textures/test.png" };
+		Picture pic{ "Assets/Textures/smile.png" };
 
 		while (true)
 		{
-			glClearColor(0.0f, 0.5f, 0.0f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
+			Renderer::Clear();
 
-			Renderer::Draw(pic, 100, 100, 1);
+			ForceUpdate();
+
+			Ekko::Renderer::Draw(pic, 100, 100, 1);
+
+			std::this_thread::sleep_until(mNextFrameTime);
 
 			PixelWindow::GetWindow()->SwapBuffers();
 
-			ForceUpdate();
+			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 		}
 
 	}

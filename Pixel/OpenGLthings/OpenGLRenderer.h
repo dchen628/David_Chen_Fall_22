@@ -10,6 +10,7 @@ namespace Ekko
 		OpenGLRenderer();
 
 		virtual void Draw(Picture& picture, int x, int y, int z, Shader& shader) override;
+		virtual void Clear() override;
 	};
 
 }

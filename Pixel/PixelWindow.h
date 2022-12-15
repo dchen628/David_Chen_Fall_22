@@ -18,6 +18,9 @@ namespace Ekko
 		int GetWidth() const;
 		int GetHeight() const;
 
+		void SetKeyPressedCallback(const std::function<void(const KeyPressedEvent&)>& keyPressedCallback);
+		void SetKeyReleasedCallback(const std::function<void(const KeyReleasedEvent&)>& keyReleasedCallback);
+
 	private:
 		inline static PixelWindow* mInstance{ nullptr };
 

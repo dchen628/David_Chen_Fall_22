@@ -135,8 +135,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Event.h" />
     <ClInclude Include="GameApp.h" />
     <ClInclude Include="GLFWthings\GLFWimplementation.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="OpenGLthings\OpenGLPicture.h" />
     <ClInclude Include="OpenGLthings\OpenGLRenderer.h" />
     <ClInclude Include="OpenGLthings\OpenGLShader.h" />
@@ -151,9 +153,11 @@
     <ClInclude Include="RendererImplementation.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderImplementation.h" />
+    <ClInclude Include="Unit.h" />
     <ClInclude Include="WindowImplementation.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameApp.cpp" />
     <ClCompile Include="GLFWthings\GLFWimplementation.cpp" />
     <ClCompile Include="OpenGLthings\OpenGLPicture.cpp" />
@@ -167,6 +171,7 @@
     <ClCompile Include="PixelWindow.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\glad\glad.vcxproj">

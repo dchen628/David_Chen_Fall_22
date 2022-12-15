@@ -53,6 +53,7 @@ namespace Ekko
             PIXEL_LOG("Error: Failed to open fragment shader file!");
         }
 
+        mShaderProg = glCreateProgram();
         glAttachShader(mShaderProg, vertexShader);
         glAttachShader(mShaderProg, fragmentShader);
         glLinkProgram(mShaderProg);
@@ -114,6 +115,7 @@ namespace Ekko
             PIXEL_LOG("Error: Failed to open fragment shader file!");
         }
 
+        mShaderProg = glCreateProgram();
         glAttachShader(mShaderProg, vertexShader);
         glAttachShader(mShaderProg, fragmentShader);
         glLinkProgram(mShaderProg);
@@ -180,5 +182,10 @@ namespace Ekko
         default:
             PIXEL_LOG("ERROR: Shader values must be vector of size 1-4!");
         }
+    }
+    
+    OpenGLShader::~OpenGLShader()
+    {
+        glDeleteProgram(mShaderProg);
     }
 }

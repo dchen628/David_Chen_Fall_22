@@ -16,10 +16,16 @@ else()
 endif()
 
 add_definitions(-DPIXEL_DEBUG)
+add_definitions(-DPIXEL_OPENGL)
 
 add_subdirectory(GameEngine)
 add_subdirectory(Pixel)
 add_subdirectory(glfw)
 add_subdirectory(glad)
+add_subdirectory(stbi)
 
 set(VS_STARTUP_PROJECT GameEngine)
+
+file(COPY GameEngine/Assets DESTINATION ${PROJECT_BINARY_DIR}/GameEngine)
+file(COPY GameEngine/Assets DESTINATION ${PROJECT_BINARY_DIR}/Debug)
+file(COPY GameEngine/Assets DESTINATION ${PROJECT_BINARY_DIR}/Release)

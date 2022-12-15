@@ -13,8 +13,10 @@ namespace Ekko
 		static void Init();
 		static Renderer* GetRenderer();
 
-		static void Draw(Picture& picture, int x, int y, int z, Shader& shader = mDefaultShader);
+		static void Draw(Picture& picture, int x, int y, int z);
+		static void Draw(Picture& picture, int x, int y, int z, Shader& shader);
 
+		static void Clear();
 
 
 	private:
@@ -24,7 +26,7 @@ namespace Ekko
 
 		Renderer();
 
-		inline static Shader mDefaultShader{ "Assets/Shaders/defaultPixelVertex.glsl",
+		Shader mDefaultShader{ "Assets/Shaders/defaultPixelVertex.glsl",
 			"Assets/Shaders/defaultPixelFragment.glsl" };
 	};
 }

@@ -47,4 +47,14 @@ namespace Ekko
 		return mHeight;
 	}
 
+	void PixelWindow::SetKeyPressedCallback(const std::function<void(const KeyPressedEvent&)>& keyPressedCallback)
+	{
+		mImplementation->SetKeyPressedCallback(keyPressedCallback);
+	}
+
+	void PixelWindow::SetKeyReleasedCallback(const std::function<void(const KeyReleasedEvent&)>& keyReleasedCallback)
+	{
+		mImplementation->SetKeyReleasedCallback(keyReleasedCallback);
+	}
+
 }
