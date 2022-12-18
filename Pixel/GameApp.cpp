@@ -32,17 +32,11 @@ namespace Ekko
 
 		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 
-		//Picture pic{ "Assets/Textures/smile.png" };
-		///Picture pic2{ "Assets/Textures/test.png" };
-
 		while (true)
 		{
 			Renderer::Clear();
 
 			ForceUpdate();
-
-			//Ekko::Renderer::Draw(pic, 200, 200, 1);
-			//Ekko::Renderer::Draw(pic2, 100, 100, 1);
 
 			std::this_thread::sleep_until(mNextFrameTime);
 

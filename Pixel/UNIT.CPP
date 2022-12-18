@@ -11,6 +11,14 @@ namespace Ekko
 	{
 	}
 
+	Unit::Unit(const std::string& picFile, int x, int y, int z): mPicture(picFile), mXcoord(x), mYcoord(y), mZcoord(z)
+	{
+	}
+
+	Unit::Unit(std::string&& picFile, int x, int y, int z): mPicture(picFile), mXcoord(x), mYcoord(y), mZcoord(z)
+	{
+	}
+
 	void Unit::SetCoord(int x, int y, int z)
 	{
 		mXcoord = x;
@@ -20,19 +28,19 @@ namespace Ekko
 
 	int Unit::ChangeX(int xDiff)
 	{
-		mXcoord = xDiff;
+		mXcoord += xDiff;
 		return mXcoord;
 	}
 
 	int Unit::ChangeY(int yDiff)
 	{
-		mYcoord = yDiff;
+		mYcoord += yDiff;
 		return mYcoord;
 	}
 
 	int Unit::ChangeZ(int zDiff)
 	{
-		mZcoord = zDiff;
+		mZcoord += zDiff;
 		return mZcoord;
 	}
 

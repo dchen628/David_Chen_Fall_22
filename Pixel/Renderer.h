@@ -15,6 +15,7 @@ namespace Ekko
 
 		static void Draw(Picture& picture, int x, int y, int z);
 		static void Draw(Picture& picture, int x, int y, int z, Shader& shader);
+		static void Draw(Unit& unit);
 
 		static void Clear();
 

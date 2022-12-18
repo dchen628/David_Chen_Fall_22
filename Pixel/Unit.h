@@ -10,6 +10,9 @@ namespace Ekko {
 		Unit(const std::string& picFile, int hp);
 		Unit(std::string&& picFile, int hp);
 
+		Unit(const std::string& picFile, int x, int y, int z);
+		Unit(std::string&& picFile, int x, int y, int z);
+
 		void SetCoord(int x, int y, int z);
 
 		int ChangeX(int xDiff);

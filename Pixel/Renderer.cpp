@@ -26,6 +26,11 @@ namespace Ekko
 		GetRenderer()->mImplementation->Draw(picture, x, y, z, shader);
 	}
 
+	void Renderer::Draw(Unit& unit)
+	{
+		GetRenderer()->mImplementation->Draw(unit.mPicture, unit.mXcoord, unit.mYcoord, unit.mZcoord, GetRenderer()->mDefaultShader);
+	}
+
 	void Renderer::Clear()
 	{
 		GetRenderer()->mImplementation->Clear();

@@ -14,7 +14,6 @@ namespace Ekko
 		virtual void ForceUpdate();
 		void Run();
 
-
 	private:
 		std::chrono::milliseconds mFrameDuration{ 1000 / FRAMES_PER_SECOND };
 		std::chrono::steady_clock::time_point mNextFrameTime;

@@ -1,4 +1,4 @@
-add_executable(GameEngine Source.cpp)
+add_executable(GameEngine Source.cpp Score.cpp)
 
 include_directories(../Pixel)
 
