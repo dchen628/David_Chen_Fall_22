@@ -8,8 +8,9 @@ namespace Ekko
 	{
 	public:
 		Score();
-		int addScore();
 		int getScore();
+		void addScore();
+		void resetScore();
 		void drawScore();
 	private:
 		Ekko::Picture zero{ "Assets/Textures/0.png" };

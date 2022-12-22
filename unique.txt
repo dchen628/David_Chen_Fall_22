@@ -1,29 +1,36 @@
 //David Chen unique.txt
 
 [Others]
-Added a function in the Renderer.h file to be able to draw Units.
+-Added a function in the Renderer.h file to be able to draw Units.
 
 [The Game]
-Added a basic background image for the space theme game.
+-Added a basic background image for the space theme game.
 
-Player(aircraft) is able to move around using the arrow keys as well as WASD keys.
+-Player(aircraft) is able to move around using the arrow keys as well as WASD keys.
 
-Added a firing key[spacebar], which allows the player to shoot a projectile.
+-Added a firing key[spacebar], which allows the player to shoot a blue projectile.
 
-The projectile can only be fired once, and can be fired again whenever it is off the screen.
+-The projectile can only be fired once, and can be fired again whenever it is off the screen.
 
-The projectile leaves the front of the player aircraft at the position when spacebar is pressed.
+-The projectile leaves the front of the player aircraft at the position when spacebar is pressed.
 
-There is an enemy red aircraft constantly moves right until it touch the right edge of the screen and
+-There is an enemy red aircraft constantly moves right until it touch the right edge of the screen and
 then it moves the opposide direction until it touch the left edge of the screen and repeat.
 
-Whenever the players projectile hit the enemy red aircraft, the score on the bottom left will increase by 1.
+-Whenever the players projectile hit the enemy red aircraft, the score on the bottom left will increase by 1.
 
-The enemy aircraft will also show an explosion for 3 second before being spawned at the same height,
+-The enemy aircraft will also show an explosion for 3 second before being spawned at the same height,
 but a random x location.
 
-After every 5 score, the enemy movement speed will increase by 1, the enemy speed starts off at 5.
+-The enemy aircraft can also shoot an orange projectile.
 
-There is a max speed for the enemy movement speed which is capped at 20.
+-After every 5 score, the enemy movement speed will increase by 1, the enemy projectile speed will also increase by 1,
+the enemy movement speed starts off at 5, the enemy projectile speed starts at 10.
 
-The game continues to go on until player exit out of the game.
+-There is a max speed for the enemy movement speed which is capped at 20, but no cap for enemy projectile speed.
+
+-When player is hit by the enemy orange projectile, an explosion will appear where the player is hit,
+the player score will be reset to 0, the enemy movement speed will be reset to 5, and enemy projectile speed
+will be reset to 10, after 3 second of the player getting hit, the player will respawn in the center.
+
+-The game continues to go on until player exit out of the game.

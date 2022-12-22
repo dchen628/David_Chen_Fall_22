@@ -4,15 +4,19 @@ Ekko::Score::Score()
 {
 }
 
-int Ekko::Score::addScore()
+void Ekko::Score::addScore()
 {
 	score++;
-	return score;
 }
 
 int Ekko::Score::getScore()
 {
 	return score;
+}
+
+void Ekko::Score::resetScore()
+{
+	score = 0;
 }
 
 void Ekko::Score::drawScore()

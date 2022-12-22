@@ -21,10 +21,10 @@ public:
 	void ForceUpdate() override
 	{
 		Ekko::Renderer::Draw(background, -200, 0, 0);
-
 		Ekko::Renderer::Draw(player);
 		Ekko::Renderer::Draw(bad);
 		Ekko::Renderer::Draw(bullet);
+		Ekko::Renderer::Draw(enemyBullet);
 		score.drawScore();
 
 		if (m_State == CharState::MOVE_LEFT)
@@ -42,7 +42,6 @@ public:
 			bullet.SetCoord(player.GetX() + 43, player.GetY() + 100, 0);
 			shot = true;
 		}
-
 		if (bullet.GetY() < 800 && shot == true)
 		{
 			bullet.ChangeY(15);
@@ -53,6 +52,27 @@ public:
 		}
 
 
+
+		if (enemyShotTimer == false)
+		{
+			alive = std::chrono::steady_clock::now();
+			enemyShotTimer = true;
+		}
+		enemyFire = std::chrono::steady_clock::now();
+		if (enemyFire - alive >= std::chrono::seconds(2) && timer == false && enemyShot == false)
+		{
+			enemyBullet.SetCoord(bad.GetX() + 48, bad.GetY(), 1);
+			enemyShot = true;
+		}
+		if (enemyBullet.GetY() > -20 && enemyShot == true)
+		{
+			enemyBullet.ChangeY(-enemyBulletSpd);
+		}
+		else if (enemyBullet.GetY() <= -20 && enemyShot == true)
+		{
+			enemyShot = false;
+			enemyShotTimer = false;
+		}
 
 
 
@@ -70,6 +90,40 @@ public:
 		{
 			bad.ChangeX(-enemySpd);
 		}
+		if (counter == 5 && enemySpd < 20)
+		{
+			enemySpd++;
+			counter = 0;
+			enemyBulletSpd++;
+		}
+
+
+
+		if (enemyBullet.OverlapsWith(player) == true && enemyHit == false)
+		{
+			playerOld = std::chrono::steady_clock::now();
+			enemyHit = true;
+			score.resetScore();
+			enemySpd = 5;
+			enemyBulletSpd = 10;
+			lastPlayerHitXCoord = player.GetX();
+			lastPlayerHitYCoord = player.GetY();
+		}
+		if (enemyHit == true)
+		{
+			player.SetCoord(-200, -200, 0);
+			playerExplosion.SetCoord(lastPlayerHitXCoord, lastPlayerHitYCoord, 0);
+			Ekko::Renderer::Draw(playerExplosion);
+		}
+		auto playerDuration = std::chrono::steady_clock::now();
+		if (playerDuration - playerOld >= std::chrono::seconds(3) && enemyHit == true)
+		{
+			playerExplosion.SetCoord(-200, -200, 0);
+			enemyHit = false;
+			player.SetCoord(450, 0, 0);
+		}
+
+
 
 		if (bullet.OverlapsWith(bad) == true && hit == false)
 		{
@@ -80,20 +134,12 @@ public:
 			score.addScore();
 			lastHitXCoord = bad.GetX();
 		}
-
-		if (counter == 5 && enemySpd < 20)
-		{
-			enemySpd++;
-			counter = 0;
-		}
-
 		if (timer == true)
 		{
 			bad.SetCoord(-200, -200, 0);
 			explosion.SetCoord(lastHitXCoord, 720, 0);
 			Ekko::Renderer::Draw(explosion);
 		}
-
 		auto duration = std::chrono::steady_clock::now();
 		if (duration - old >= std::chrono::seconds(3) && timer == true)
 		{
@@ -111,20 +157,33 @@ private:
 	Ekko::Picture background{ "Assets/Textures/back.png" };
 	Ekko::Unit player{ "Assets/Textures/plane.png", 450, 0, 0 };
 	Ekko::Unit bullet{ "Assets/Textures/ball.png", -100, -100, 0 };
+	Ekko::Unit enemyBullet{ "Assets/Textures/enemyball.png", -100, -100, 0 };
 	bool shot = false;
+	bool enemyShot = false;
+	bool enemyShotTimer = false;
+	bool enemyHit = false;
 
 	Ekko::Unit bad{ "Assets/Textures/BadGuy1.png", 500, 700, 1 };
 	bool side = false;
 	int enemySpd = 5;
 	int counter = 0;
+	int enemyBulletSpd = 10;
 
 	bool hit = false;
 	Ekko::Score score{};
 
 	Ekko::Unit explosion{ "Assets/Textures/boom.png", -200, -200, 0 };
+	Ekko::Unit playerExplosion{ "Assets/Textures/boom.png", -200, -200, 0 };
 	std::chrono::steady_clock::time_point old;
+	std::chrono::steady_clock::time_point playerOld;
+	std::chrono::steady_clock::time_point alive;
+	std::chrono::steady_clock::time_point enemyFire;
 	bool timer = false;
 	int lastHitXCoord{ 0 };
+	int lastPlayerHitXCoord{ 0 };
+	int lastPlayerHitYCoord{ 0 };
+
+
 
 	enum class CharState {
 		MOVE_LEFT,
